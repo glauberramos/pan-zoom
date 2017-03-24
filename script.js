@@ -3,7 +3,7 @@ $(function () {
     $('img').addClass('is-active', function() {
       $('img').addClass('is-visible');
     });
-    
+
     $('.zoomable').css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
   });
 
@@ -15,7 +15,7 @@ $(function () {
     $(this).css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
   });
 
-  $('.zoomable').on('touchmove', function(event) {
+  $(document).on("vmousemove", ".zoomable", function() {
     $(this).css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
   });
 });
