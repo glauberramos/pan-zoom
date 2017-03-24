@@ -1,6 +1,9 @@
 $(function () {
   $('.slide').click(function(event) {
-    $('img').addClass('is-active').addClass('is-visible');
+    $('img').addClass('is-active', function() {
+      $('img').addClass('is-visible');
+    });
+    
     $('.zoomable').css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
   });
 
