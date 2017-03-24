@@ -1,6 +1,7 @@
 $(function () {
-  $('.slide').click(function() {
+  $('.slide').click(function(event) {
     $('img').addClass('is-active').addClass('is-visible');
+    $('.zoomable').css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
   });
 
   $('.zoomable').click(function() {
