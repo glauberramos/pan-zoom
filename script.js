@@ -1,25 +1,25 @@
 $(function () {
   $('.slide').click(function(event) {
+    $('.container').addClass('is-active');
     $('img').addClass('is-active', function() {
       $('img').addClass('is-visible');
     });
 
-    $('.zoomable').css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
+    if ('ontouchstart' in window) {
+      //mobile
+    } else {
+      $('.zoomable').css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
+    }
+
+    $('body').addClass('no-scroll touch-events');
   });
 
   $('.zoomable').click(function() {
-    $(this).removeClass('is-visible').removeClass('is-active');
+    $('.container').removeClass('is-active');
+    $('.zoomable').removeClass('is-visible').removeClass('is-active');
   });
 
   $('.zoomable').on('mousemove', function(event) {
-    $('.zoomable').css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
-  });
-
-  // $('.zoomable').on('touchmove', function(event) {
-  //   $('.zoomable').css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
-  // });
-
-  $(document).on("vmousemove", ".zoomable", function() {
     $('.zoomable').css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
   });
 });

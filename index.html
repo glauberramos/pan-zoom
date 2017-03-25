@@ -1,13 +1,25 @@
 <html>
   <head>
     <link rel="stylesheet" href="style.css">
+  	<script src="Scroller/Animate.js"></script>
+	  <script src="Scroller/Scroller.js"></script>
+	  <script src="scroller/render.js"></script>
   </head>
   <body>
     <div class="slide"></div>
-    <img class="zoomable" src="bigimage.jpg" />
+    <div class="container">
+  		<img id="content" class="zoomable" src='bigimage.jpg' />
+  	</div>
   </body>
+  <script type="text/javascript">
+		var contentWidth = 2880;
+		var contentHeight = 1920;
+		var content = document.getElementById("content");
+		content.style.width = contentWidth + "px";
+		content.style.height = contentHeight + "px";
+	</script>
   <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   <script src="addClass.js"></script>
   <script src="script.js"></script>
+  <script src="scroller/ui.js"></script>
 </html>
