@@ -1,14 +1,15 @@
-body {
-  margin: 0;
-}
-
-.no-scroll {
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
-}
-
-.touch-events .zoomable {
-  -webkit-transform-origin: left top;
-          transform-origin: left top;
+  background: #000;
+  background-image: url('bigimage.jpg');
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: contain;
 }
 
 .container {
@@ -51,18 +52,4 @@ body {
 
 .is-visible {
   opacity: 1;
-}
-
-.slide {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  background: #000;
-  background-image: url('bigimage.jpg');
-  background-repeat: no-repeat;
-  background-position: 50%;
-  background-size: contain;
 }

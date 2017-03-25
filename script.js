@@ -63,8 +63,6 @@ $(function () {
       //desktop
       $('.zoomable').css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
     }
-
-    $('body').addClass('no-scroll touch-events');
   });
 
   $('.zoomable').click(function() {
