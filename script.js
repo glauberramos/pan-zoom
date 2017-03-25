@@ -49,6 +49,8 @@ function loadScroller() {
 }
 
 $(function () {
+  var dragging = false;
+
   $('.slide').click(function(event) {
     $('.container').addClass('is-active', function() {
       $('.zoomable').addClass('is-visible');
@@ -73,5 +75,20 @@ $(function () {
   //desktop
   $('.zoomable').on('mousemove', function(event) {
     $('.zoomable').css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
+  });
+
+  $('.zoomable').on('touchstart', function(event) {
+    dragging = false;
+  });
+
+  $('.zoomable').on('touchend', function(event) {
+    if (dragging) return;
+
+    $('.container').removeClass('is-active');
+    $('.zoomable').removeClass('is-visible');
+  });
+
+  $('.zoomable').on('touchmove', function(event) {
+    dragging = true;
   });
 });
