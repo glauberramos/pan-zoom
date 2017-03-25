@@ -12,10 +12,14 @@ $(function () {
   });
 
   $('.zoomable').on('mousemove', function(event) {
-    $(this).css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
+    $('.zoomable').css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
   });
 
+  // $('.zoomable').on('touchmove', function(event) {
+  //   $('.zoomable').css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
+  // });
+
   $(document).on("vmousemove", ".zoomable", function() {
-    $(this).css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
+    $('.zoomable').css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
   });
 });
