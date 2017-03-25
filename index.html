@@ -8,13 +8,13 @@
   <body>
     <div class="slide"></div>
     <div class="container">
-  		<img id="content" class="zoomable" src='bigimage.jpg' />
+  		<img class="zoomable" src='bigimage.jpg' />
   	</div>
   </body>
   <script type="text/javascript">
 		var contentWidth = 2880;
 		var contentHeight = 1920;
-		var content = document.getElementById("content");
+		var content = document.getElementsByClassName("zoomable")[0];
 		content.style.width = contentWidth + "px";
 		content.style.height = contentHeight + "px";
 	</script>

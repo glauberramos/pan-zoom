@@ -1,7 +1,6 @@
 $(function () {
   $('.slide').click(function(event) {
-    $('.container').addClass('is-active');
-    $('img').addClass('is-active', function() {
+    $('.container').addClass('is-active', function() {
       $('img').addClass('is-visible');
     });
 

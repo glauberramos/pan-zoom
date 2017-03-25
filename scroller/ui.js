@@ -1,6 +1,6 @@
 // Intialize layout
 var container = document.getElementsByClassName("container")[0];
-var content = document.getElementById("content");
+var content = document.getElementsByClassName("zoomable")[0];
 var clientWidth = 0;
 var clientHeight = 0;
 
