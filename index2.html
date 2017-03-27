@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  	<script src="Animate.js"></script>
+	  <script src="Scroller.js"></script>
+	  <script src="render.js"></script>
+  </head>
+  <body>
+    <div class="slide second"></div>
+    <div class="container">
+  		<img class="zoomable" src='portrait.jpg' />
+  	</div>
+  </body>
+  <script type="text/javascript">
+		var contentWidth = 1200;
+		var contentHeight = 1807;
+		var content = document.getElementsByClassName("zoomable")[0];
+		content.style.width = contentWidth + "px";
+		content.style.height = contentHeight + "px";
+	</script>
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+  <script src="addClass.js"></script>
+  <script src="script.js"></script>
+</html>

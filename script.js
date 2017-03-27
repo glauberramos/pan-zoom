@@ -46,6 +46,22 @@ function loadScroller() {
   }, false);
 }
 
+function scrollDesktop(event) {
+  var viewPortWith = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  var middleX = $('.zoomable')[0].clientWidth > viewPortWith ? 0 : viewPortWith / 2 ;
+
+  var viewPortHeigth = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+  var translateX;
+
+  if ($('.zoomable')[0].clientWidth > viewPortWith) {
+    translateX = (($('.zoomable')[0].clientWidth - event.pageX) / viewPortWith) * event.pageX - middleX;
+  } else {
+    translateX = (($('.zoomable')[0].clientWidth) / viewPortWith) * event.pageX - middleX;
+  }
+  var translateY = (($('.zoomable')[0].clientHeight - event.pageY) / viewPortHeigth) * event.pageY;
+  $('.zoomable').css({'transform': 'translate3D(' + (-translateX) +  'px,' + (-translateY) + 'px' + ', 0px)'});
+}
+
 $(function () {
   var dragging = false;
 
@@ -56,10 +72,10 @@ $(function () {
 
     if ('ontouchstart' in window) {
       //mobile
-      loadScroller()
+      loadScroller();
     } else {
       //desktop
-      $('.zoomable').css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
+      scrollDesktop(event);
     }
   });
 
@@ -70,11 +86,7 @@ $(function () {
 
   //desktop
   $('.zoomable').on('mousemove', function(event) {
-    var viewPortWith = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-    var viewPortHeigth = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-    var translateX = - (($(this)[0].clientWidth - event.pageX) / viewPortWith) * event.pageX;
-    var translateY = - (($(this)[0].clientHeight - event.pageY) / viewPortHeigth) * event.pageY;
-    $('.zoomable').css({'transform': 'translate3D(' + translateX +  'px,' + translateY + 'px' + ', 0px)'});
+    scrollDesktop(event);
   });
 
   $('.zoomable').on('touchstart', function(event) {

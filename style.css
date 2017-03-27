@@ -12,8 +12,12 @@
   background-size: contain;
 }
 
+.second {
+  background-image: url('portrait.jpg');
+}
+
 .container {
-  background: white;
+  background: #000;
   position: absolute;
   top: 0;
   right: 0;
