@@ -70,7 +70,11 @@ $(function () {
 
   //desktop
   $('.zoomable').on('mousemove', function(event) {
-    $('.zoomable').css({'transform': 'translate3D(' + (-event.pageX) +  'px,' + (-event.pageY) + 'px' + ', 0px)'});
+    var viewPortWith = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    var viewPortHeigth = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+    var translateX = - (($(this)[0].clientWidth - event.pageX) / viewPortWith) * event.pageX;
+    var translateY = - (($(this)[0].clientHeight - event.pageY) / viewPortHeigth) * event.pageY;
+    $('.zoomable').css({'transform': 'translate3D(' + translateX +  'px,' + translateY + 'px' + ', 0px)'});
   });
 
   $('.zoomable').on('touchstart', function(event) {
