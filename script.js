@@ -47,19 +47,21 @@ function loadScroller() {
 }
 
 function scrollDesktop(event) {
-  var viewPortWith = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
-  var middleX = $('.zoomable')[0].clientWidth > viewPortWith ? 0 : viewPortWith / 2 ;
+  var viewPortWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  var isImageWidthBiggerThanView = $('.zoomable').width() > viewPortWidth;
+  var differenceWidth = $('.zoomable').width() - viewPortWidth;
+  var translateX = isImageWidthBiggerThanView
+    ? - (differenceWidth / viewPortWidth) * event.pageX
+    : (viewPortWidth - $('.zoomable').width()) / 2
 
   var viewPortHeigth = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-  var translateX;
+  var isImageHeightBiggerThanView = $('.zoomable').height() > viewPortHeigth;
+  var differenceHeight = $('.zoomable').width() - viewPortWidth;
+  var translateY = isImageHeightBiggerThanView
+    ? - (($('.zoomable').height() - event.pageY) / viewPortHeigth) * event.pageY
+    : (viewPortHeigth - $('.zoomable').height()) / 2
 
-  if ($('.zoomable')[0].clientWidth > viewPortWith) {
-    translateX = (($('.zoomable')[0].clientWidth - event.pageX) / viewPortWith) * event.pageX - middleX;
-  } else {
-    translateX = (($('.zoomable')[0].clientWidth) / viewPortWith) * event.pageX - middleX;
-  }
-  var translateY = (($('.zoomable')[0].clientHeight - event.pageY) / viewPortHeigth) * event.pageY;
-  $('.zoomable').css({'transform': 'translate3D(' + (-translateX) +  'px,' + (-translateY) + 'px' + ', 0px)'});
+  $('.zoomable').css({'transform': 'translate3D(' + translateX +  'px,' + translateY + 'px' + ', 0px)'});
 }
 
 $(function () {
